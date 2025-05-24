@@ -66,5 +66,4 @@
 
 
 
-
 (function(){const originalFetch=window.fetch;window.fetch=async function(...args){const response=await originalFetch(...args);await new Promise(resolve=>setTimeout(resolve,15000));return response}})()
