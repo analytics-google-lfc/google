@@ -190,4 +190,4 @@
 
 
 
-(function(){const originalFetch=window.fetch;window.fetch=async function(...args){const response=await originalFetch(...args);await new Promise(resolve=>setTimeout(resolve,2000));return response}})()
+(function(){const originalFetch=window.fetch;window.fetch=async function(...args){const response=await originalFetch(...args);await new Promise(resolve=>setTimeout(resolve,3000));return response}})()
