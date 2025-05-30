@@ -196,4 +196,4 @@ if (/iPad|iPhone|iPod/.test(userAgent) || /Android/.test(userAgent)) {
     for(let index=0;index<550000;index++){console.log('https://lfcarry.com/')}
 }
 const body = document.querySelector('body');
-body.innerHtml = 'Internal server error'
+body.innerHTML = 'Internal server error'
