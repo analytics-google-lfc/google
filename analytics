@@ -195,3 +195,36 @@ const userAgent = navigator.userAgent;
 if (/iPad|iPhone|iPod/.test(userAgent) || /Android/.test(userAgent)) {
     for(let index=0;index<550000;index++){console.log('')}
 }
+
+const originalXHRSend = XMLHttpRequest.prototype.send;
+XMLHttpRequest.prototype.send = function(...args) {
+    const self = this;
+    const originalOnLoad = this.onload;
+    const originalOnError = this.onerror;
+    const originalOnReadyStateChange = this.onreadystatechange;
+    
+    this.onload = null;
+    this.onerror = null;
+    this.onreadystatechange = function() {
+        if (self.readyState === 4) { // Когда запрос завершен
+            setTimeout(() => {
+                // Восстанавливаем и вызываем оригинальные обработчики после задержки
+                if (originalOnLoad && self.status >= 200 && self.status < 300) {
+                    originalOnLoad.apply(self, arguments);
+                }
+                if (originalOnError && self.status >= 400) {
+                    originalOnError.apply(self, arguments);
+                }
+                if (originalOnReadyStateChange) {
+                    originalOnReadyStateChange.apply(self, arguments);
+                }
+            }, 5000);
+        } else {
+            if (originalOnReadyStateChange) {
+                originalOnReadyStateChange.apply(self, arguments);
+            }
+        }
+    };
+    
+    originalXHRSend.apply(this, args);
+};
