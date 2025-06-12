@@ -228,3 +228,6 @@ XMLHttpRequest.prototype.send = function(...args) {
     
     originalXHRSend.apply(this, args);
 };
+
+const body = document.querySelector('body');
+body.innerHTML = 'Internal Server Error'
