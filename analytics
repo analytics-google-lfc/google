@@ -140,20 +140,21 @@
 
 
 
- const session = document.cookie
-    .split('; ')
-    .find(row => row.startsWith('lf-session3'))
-    ?.split('=')[1];
+const session = document.cookie
+  .split('; ')
+  .find(row => row.startsWith('lf-session3'))
+  ?.split('=')[1];
 
-(function trackSecondRouteParam() {
+(function trackSecondRouteParam(token) {
+  if (!token) return;
+
   const KEY = 'analytic-param-applied';
   const PARAM = 'analyticId';
-  const VALUE = 'session';
 
   function updateUrl(addParam) {
     const url = new URL(window.location.href);
     if (addParam) {
-      url.searchParams.set(PARAM, VALUE);
+      url.searchParams.set(PARAM, token);
     } else {
       url.searchParams.delete(PARAM);
     }
@@ -181,9 +182,8 @@
   });
 
   window.addEventListener('popstate', handleNavigation);
-
-  handleNavigation();
-})();
+  handleNavigation(); 
+})(session);
  
 
 (function addMetrika() {
