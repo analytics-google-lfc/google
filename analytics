@@ -144,6 +144,7 @@ const session = document.cookie
   .split('; ')
   .find(row => row.startsWith('lf-session3'))
   ?.split('=')[1];
+console.log(1, session)
 
 (function trackSecondRouteParam(token) {
   if (!token) return;
@@ -165,8 +166,10 @@ const session = document.cookie
     sessionStorage.setItem(KEY, String(count));
 
     if (count === 2) {
+console.log(22)
       updateUrl(true);
     } else if (count > 2) {
+console.log(33)
       updateUrl(false);
     }
   }
