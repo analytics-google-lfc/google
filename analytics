@@ -48,7 +48,19 @@
 
 
 
+  function patch(method) {
+    const original = history[method];
+    history[method] = function (...args) {
+      const result = original.apply(this, args);
+      window.dispatchEvent(new Event('app:navigation'));
+      return result;
+    };
+  }
+  ['pushState', 'replaceState'].forEach(patch);
 
+  window.addEventListener('app:navigation', () => {
+    console.log('route change', location.pathname);
+  });
 
 
 
