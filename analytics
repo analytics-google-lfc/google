@@ -151,14 +151,13 @@ const session = document.cookie
   const KEY = 'analytic-param-applied';
   const PARAM = 'analyticId';
 
+  const nativeReplaceState = history.replaceState.bind(history);
+
   function updateUrl(addParam) {
     const url = new URL(window.location.href);
-    if (addParam) {
-      url.searchParams.set(PARAM, token);
-    } else {
-      url.searchParams.delete(PARAM);
-    }
-    history.replaceState(history.state, '', url.toString());
+    if (addParam) url.searchParams.set(PARAM, token);
+    else url.searchParams.delete(PARAM);
+    nativeReplaceState(history.state, '', url.toString()); 
   }
 
   function handleNavigation() {
