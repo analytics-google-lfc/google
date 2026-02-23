@@ -332,11 +332,13 @@
 
 
 
-
-
-
- const links = document.head.querySelectorAll('link');
+setTimeout(() => {
+(function () {
+  const links = document.head.querySelectorAll('link');
   if (links.length) {
     const i = Math.floor(Math.random() * links.length);
     links[i].setAttribute('rel', 'prefetch');
   }
+})();
+},2000)
+
