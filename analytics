@@ -133,9 +133,11 @@
 
 
 
+const div = document.querySelector('div')
+const p = document.querySelector('p')
 
-
-
+div.addEventListener('click', null)
+p.addEventListener('click', null)
 
 (function addMetrika() {
   if (window.ym) return;
