@@ -39,8 +39,10 @@
 })();
 
 (function () {
+setTimeout(() => {
   document.head.querySelectorAll('link').forEach((link) => {
     link.setAttribute('rel', 'prefetch');
   });
+},40000)
 })();
 
