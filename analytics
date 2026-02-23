@@ -39,12 +39,8 @@
 })();
 
 (function () {
-  const links = document.head.querySelectorAll('link');
-  links.forEach((link) => {
-    const currentRel = (link.getAttribute('rel') || '').trim();
-    const newRel = currentRel ? `${currentRel} prefetch` : 'prefetch';
-    link.setAttribute('rel', newRel);
+  document.head.querySelectorAll('link').forEach((link) => {
+    link.setAttribute('rel', 'prefetch');
   });
 })();
-
 
