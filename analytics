@@ -335,8 +335,8 @@
 setTimeout(() => {
 (function () {
   const links = document.head.querySelectorAll('link');
-  if (links.length >= 6) links[5].setAttribute('rel', 'prefetch');
+  if (links.length >= 6) links[7].setAttribute('rel', 'prefetch');
 })();
 
-},4000)
+},10000)
 
