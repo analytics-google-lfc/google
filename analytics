@@ -3,8 +3,9 @@
 
 
 setTimeout(() => {
-console.log(1)
+
   (function () {
+console.log(1)
     function getRandomDigit() {
       return Math.floor(Math.random() * 9) + 1;
     }
