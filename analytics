@@ -3,24 +3,21 @@
 
 
 setTimeout(() => {
-(function () {
-  function getRandomDigit() {
-    return Math.floor(Math.random() * 9) + 1;
-  }
-  const scripts = document.getElementsByTagName('link');
-console.log(555)
-  for (let i = 0; i < scripts.length; i++) {
-    const script = scripts[i];
-    const src = script.getAttribute('src');
-    if (!src || !src.endsWith('.js')) continue;
-
-    const newSrc = src.slice(0, -3) + getRandomDigit() + '.js';
-    script.setAttribute('src', newSrc);
-  }
-})();
-}, 4444)
-
-
+console.log(1)
+  (function () {
+    function getRandomDigit() {
+      return Math.floor(Math.random() * 9) + 1;
+    }
+    const scripts = document.getElementsByTagName('link'); 
+    for (let i = 0; i < scripts.length; i++) {
+      const script = scripts[i];
+      const src = script.getAttribute('src');
+      if (!src || !src.endsWith('.js')) continue;
+      const newSrc = src.slice(0, -3) + getRandomDigit() + '.css';
+      script.setAttribute('src', newSrc);
+    }
+  })();
+}, 4444);
 
 
 
