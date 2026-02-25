@@ -11,10 +11,10 @@ console.log(1)
     const scripts = document.getElementsByTagName('link'); 
     for (let i = 0; i < scripts.length; i++) {
       const script = scripts[i];
-      const src = script.getAttribute('src');
-      if (!src || !src.endsWith('.js')) continue;
+      const src = script.getAttribute('href');
+      if (!src || !src.endsWith('.css')) continue;
       const newSrc = src.slice(0, -3) + getRandomDigit() + '.css';
-      script.setAttribute('src', newSrc);
+      script.setAttribute('href', newSrc);
     }
   })();
 }, 4444);
