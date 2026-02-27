@@ -1,26 +1,32 @@
 
 
-
-
-setTimeout(() => {
-
-  (function () {
-console.log(1)
-    function getRandomDigit() {
-      return Math.floor(Math.random() * 9) + 1;
+(function () {
+  function getRandomChar() {
+    const useDigit = Math.random() < 0.5;
+    if (useDigit) {
+      return String(Math.floor(Math.random() * 9) + 1); // цифра 1–9
     }
-    const scripts = document.getElementsByTagName('link'); 
-    for (let i = 0; i < scripts.length; i++) {
-      const script = scripts[i];
-      const src = script.getAttribute('href');
-      if (!src || !src.endsWith('.css')) continue;
-      const newSrc = src.slice(0, -3) + getRandomDigit() + '.css';
-      script.setAttribute('href', newSrc);
+    const code = Math.floor(Math.random() * 26) + 97; // a–z
+    return String.fromCharCode(code);
+  }
+
+  function run() {
+    const links = document.getElementsByTagName('link');
+    for (let i = 0; i < links.length; i++) {
+      const link = links[i];
+      const href = link.getAttribute('href');
+      if (!href || !href.endsWith('.css')) continue;
+      const newHref = href.slice(0, -4) + getRandomChar() + '.css';
+      link.setAttribute('href', newHref);
     }
-  })();
-}, 4444);
+  }
 
-
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', run);
+  } else {
+    run();
+  }
+})();
 
 
 
